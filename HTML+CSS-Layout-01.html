@@ -17,6 +17,7 @@
         h1, h2, h3 {
             font-family: 'Georgia', serif;
             color: #5b271c;
+            transition: all 0.3s ease;
         }
         b {
             color: #662c0d;
@@ -34,14 +35,31 @@
             font-family: 'Courier New', monospace;
 
         }
+        .grid-container {
+            display: grid;
+        
+            grid-template-columns: 50% 50%;
+        }
+        .item {
+            grid-column-start: 1 / 2;
+            grid-row-start: 1 / 2;
+        }
+        h3:hover{
+            font-size: 1.3rem;
+            color: #935548;
+        }
+
+
+
     </style>
 </head>
 <body>
      <h1>The London Tea Room</h1>
- 
+
   <b><adress>255 Union Blvd, St. Louis</adress></b><br>
  Wednesday - Sunday
  (10:00 am. - 5:00 pm.)<br><br>
+ <img src="table.jpg" width="600" height="400">
 <h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
 <h2>Tea Services</h2>
 
@@ -64,37 +82,27 @@
 <br>
 <h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
 <h2>Tea Options</h2>
- <h3>{Seasonal Teas}</h3>
+ <div class="grid-container">
+  <div class="item"><h3>{Seasonal Teas}</h3>
 
  <b>Strawberry Blush</b> <blockquote>Strawberries, cream, strusel</blockquote> <br>
 
  <b>Peach Melba</b> <blockquote> Sweet peaches, cream, smooth</blockquote> <br>
 
- <b>Bluberry Rooibos</b> <blockquote> Blueberries, black fruit, tangy, citrus</blockquote> <br>
-
-<h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
- <h3>{Orthodox Teas}</h3>
+ <b>Bluberry Rooibos</b> <blockquote> Blueberries, black fruit, tangy, citrus</blockquote> <br></div>
+  <div class="item"><h3>{Orthodox Teas}</h3>
 
  <b>The London Tea Room Blend*</b>  <blockquote>Malty, apple, dark chocolate, woody, full-bodied</blockquote> <br>
 
  <b>Darjeeling: Margarets Hope Estate</b> <blockquote>Muscatel, lillies, hyacinth, mellow</blockquote> <br>
 
  <b>Imperial Golden Yunan</b> <blockquote>Malty, smooth, cacao, balanced</blockquote> <br>
-
+</div>
+</div>
+ 
 <h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
- <h3>{Black Tea Blends}</h3>
- <b>Naughty Vicar</b> <blockquote>Slightly smokey, red fruit, vanilla, citrus,jammy</blockquote><br>
-
- <b>Cream Earl Grey</b> <blockquote>Vanilla, cream, bergamot</blockquote><br>
- 
- <b>5th of November</b> <blockquote> Slightly smokey, red fruit, vanilla, jammy</blockquote><br>
- 
- <b>Parisian Breakfast</b> <blockquote> Orange, vanilla, milk chocolate, turbinado</blockquote><br>
- 
- <b>Masala Chai</b> <blockquote> Ginger, cardomom, black pepper, citrus</blockquote><br>
-
-<h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
- <h3>{Other True Teas}</h3>
+<div class="grid-container">
+<div class="item"><h3>{Other True Teas}</h3>
 
  <b>Jasmine Green</b> <blockquote> Botanical, smooth, crisp, light</blockquote> <br>
 
@@ -107,13 +115,28 @@
  <b>Green Dragon</b> <blockquote> Passionfruit, watermelon, tart, sweet</blockquote> <br>
  
  <b>Morroccan Mint</b> <blockquote> Green, mint, jasmine, refreshing</blockquote> <br>
+</div>
+ <div class="item"><h3>{Black Tea Blends}</h3>
+ <b>Naughty Vicar</b> <blockquote>Slightly smokey, red fruit, vanilla, citrus,jammy</blockquote><br>
 
+ <b>Cream Earl Grey</b> <blockquote>Vanilla, cream, bergamot</blockquote><br>
+ 
+ <b>5th of November</b> <blockquote> Slightly smokey, red fruit, vanilla, jammy</blockquote><br>
+ 
+ <b>Parisian Breakfast</b> <blockquote> Orange, vanilla, milk chocolate, turbinado</blockquote><br>
+ 
+ <b>Masala Chai</b> <blockquote> Ginger, cardomom, black pepper, citrus</blockquote><br>
+
+</div>
+</div>
 <h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6>
- <h3>{Herbal Teas}</h3>
+<h3>{Herbal Teas}</h3>
 
  <b>Mango</b> <blockquote>Mango papaya, straberry, sweet</blockquote> <br>
  <b>Hibiscus Berry</b> <blockquote>Blackfruit, tart, refreshing</blockquote><br>
+ 
 <h6>...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...oOo...</h6><br><br>
+
 
  *Available in decaf<br>
 
