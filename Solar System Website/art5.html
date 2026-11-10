@@ -3,63 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>???</title>
+    <title>L4nd_V1ew</title>
     <style>
         html { background: black; }
         body { margin: 0; }
         img { max-width: 100%; }
+
+
+         #starfield {
+          position: fixed;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 0;
+          }
+
+          .star {
+              position: absolute;
+              border-radius: 50%;
+              background: white;
+          }
     </style>
 </head>
 <style>
-.image1{
-  position: relative;
-  display: inline-block;
-  width: 100%;     
-  max-width: auto;
-}
-
-.arrow.left{
-  position: absolute;
-  top: 73%;
-  left: 2%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 2em;
-}
-
-.arrow.right{
-  position: absolute;
-  top: 73%;
-  right: 2%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 2em;
-}
-
 .text{
   position: absolute;
-  top: 70%;
-  left: 10%;
-  color: white;
+  top: 1%;
+  left: 1%;
+  color: #9edefa;
   padding: 5px;
   border-radius: 1px;
-  font-size: .5em;
+  font-size: .75em;
+  z-index: 1;
+} 
+
+.image{
+  position: absolute;
+  left:32%;  
+  top: 25%;
+
+  z-index: 0;
 }
+
+
+.container{
+  position: relative;
+  max-width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  /* border: 5px solid yellow; */
+}
+
+.portal{
+  position: absolute;
+  top: 10%;
+  margin: 0 auto;
+  pointer-events: none;
+
+  z-index: 1;
+} 
 
 </style>
 <body>
-    <div class="image1">
-        <img src="February_Snow.jpg" alt="Art 5" style="width: 100%; height: auto; display: block;">
 
-    </div>
-     <div class="arrow left">
-      <a href="art4.html" style="text-decoration: none; color: white;"><</a>
-    </div>
-    <div class="arrow right"> 
-      <a href="art.html" style="text-decoration: none; color: white;">></a>
-    </div>
-    <div class="text">
-        <h2><code>February Snow</code></h2>
-        <h3><code>Thomas P. Barnett, 1925</code></h3>
-    </div>
+  <div id="starfield" aria-hidden="true"></div>
+  <div class="container">
+
+    <div class="portal" ;style="width: 100%; height: auto">
+      <img src="portal.png">
+    </div> 
+
+      <div class="image"; style="width: 41%; height: auto">
+        <a href="art4.html" style="text-decoration: none; color: white;"><img src="eye_of_silence.png" alt="Art 4">
+        </a>
+      </div>
+      
+      <div class="text">
+          <h2><code>The_Eye_Of_Silence</code></h2>
+        <h3><code>Max-Ernst.1944</code></h3>
+      </div>
+  </div>
+
+<script>
+  const starfield = document.getElementById("starfield");
+
+    for (let i = 0; i < 150; i++) {
+        const star = document.createElement("span");
+        const size = Math.random() * 2 + 1;
+
+        star.className = "star";
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.opacity = Math.random();
+
+        starfield.appendChild(star);
+    }
+</script>
+
 </body>

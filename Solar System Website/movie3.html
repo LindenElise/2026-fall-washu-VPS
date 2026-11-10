@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>???</title>
+    <title>M0-V1.E5</title>
     <style>
         html { background: black; }
         body { margin: 0; }
         img { max-width: 100%; }
+
+        #starfield {
+          position: fixed;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 0;
+          }
+
+          .star {
+              position: absolute;
+              border-radius: 50%;
+              background: white;
+          }
+    </style>
     </style>
 </head>
 <style>
@@ -21,7 +36,7 @@
 
 .title{
   position: absolute;
-  top: 78%;             
+  top: 70%;             
   left: 0%;          
   padding: 10px;              
   
@@ -33,7 +48,7 @@
 .batman,.red,.alien,.fox,.howls
 {
   position: absolute;
-  top: 85%;             
+  top: 73%;             
   left: 0%;          
   padding: 10px;              
   
@@ -42,12 +57,61 @@
   border-radius: 8px;
 }
 
+
+
+.dot1:hover, .dot2:hover, .dot3:hover, .dot4:hover, .dot5:hover {
+  transform: scale(1.2);
+}
+.dot1{
+  position: absolute;
+  top: 1%;             
+  left: 16%;  
+   color: rgb(158, 222, 250);   
+  font-size: 100px;
+   transition: transform 0.3s ease;       
+}
+.dot2{
+  position: absolute;
+  top: 17%;             
+  left: 30%; 
+  color: rgb(158, 222, 250);   
+  font-size: 100px;
+   transition: transform 0.3s ease;         
+}
+.dot3{
+  position: absolute;
+  top: 5%;             
+  left: 45%;   
+  color: rgb(158, 222, 250);   
+  font-size: 100px;
+   transition: transform 0.3s ease;       
+}
+.dot4{
+  position: absolute;
+  top: 11%;             
+  left: 56%;
+  font-size: 20px;   
+  color: rgb(158, 222, 250);   
+  font-size: 100px;
+   transition: transform 0.3s ease;          
+}
+.dot5{
+  position: absolute;
+  top: 1%;             
+  left: 75%;       
+  color: rgb(158, 222, 250);   
+  font-size: 100px;
+  transition: transform 0.3s ease;
+} 
+
 </style>
 
 <body>
 <div class="zoom-img">
 <div class="image2">
-  <img src="movie_planet.png" alt="movie planet" style="width: 100%; height: auto; display: block;">
+
+  <div id="starfield" aria-hidden="true"></div>
+  <img src="Alien_planet.png" alt="movie planet" style="width: 100%; height: auto; display: block;">
 
         <div class="title">
         <h1><code>M0-VI.E5</code></h1>
@@ -57,6 +121,46 @@
         <h3><code>The_Batman<br>Rating: 5/5 </code></h3>
         </div>
 
+        <div class="dot1">
+          <a href="movie1.html" style="text-decoration: none;"><code><img src="dot.png" alt="dot" width="30" height="30"></code></a>
+        </div>
+
+        <div class="dot2">
+           <a href="movie2.html" style="text-decoration: none;"><code><img src="dot.png" alt="dot" width="30" height="30"></code></a>
+          
+        </div>
+
+        <div class="dot3">
+          <a href="movie3.html" style="text-decoration: none;"><code><img src="dot.png" alt="dot" width="30" height="30"></code></a>
+        </div>
+
+        <div class="dot4">
+          <a href="movie4.html" style="text-decoration: none;"><code><img src="dot.png" alt="dot" width="30" height="30"></code></a>
+        </div>
+
+        <div class="dot5">
+          <a href="movie5.html" style="text-decoration: none;"><code><img src="dot.png" alt="dot" width="30" height="30"></code></a>
+        </div>
+
+
     
 </div>
+
+<script>
+  const starfield = document.getElementById("starfield");
+
+    for (let i = 0; i < 150; i++) {
+        const star = document.createElement("span");
+        const size = Math.random() * 2 + 1;
+
+        star.className = "star";
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.opacity = Math.random();
+
+        starfield.appendChild(star);
+    }
+</script>
 </body>

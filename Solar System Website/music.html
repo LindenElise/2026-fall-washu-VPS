@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>???</title>
+    <title>MU-51.CC</title>
     <style>
         html { background: black; }
         body { margin: 0; }
         img { max-width: 100%; }
+
+        #starfield {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+}
+
+.site-title, .song1, .song2, .song3, .rings-container {
+    z-index: 1;
+}
     </style>
 </head>
 <style>
@@ -15,64 +33,224 @@
 
     .site-title{
         position: absolute;
-        top: 50%;             
+        top: 2%;             
         left: 2%;
         padding: 10px;
         color: #9edefa;
     }
+    .song1, .song2, .song3 {
+        position: absolute;
+        top: 6%;             
+        left: 2%;
+        padding: 10px;
+        visibility: hidden;
+    }
+
+    body:has(.inner:hover) .song1,
+    body:has(.middle:hover) .song2,
+    body:has(.outer:hover) .song3 {
+        visibility: visible;
+        color: #9edefa;
+        z-index: 1;
+    }   
+
     
+    @keyframes spin{
+        from{ transform: rotate(0deg); }
+        to {transform: rotate(360deg); }
+    }
+    
+    .inner:hover {
+        animation-name: spin; 
+        animation-duration: 1.5s; 
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    } 
+   
 
-     .ring_8{
+    .middle:hover {
+        animation-name: spin; 
+        animation-duration: 1.5s; 
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    } 
+
+    .outer:hover {
+        animation-name: spin; 
+        animation-duration: 1.5s; 
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    } 
+
+    .inner:hover ~ .i_overlay{
+        opacity: 0%;
+        
+    } 
+
+    .middle:hover ~ .m_overlay{
+        opacity: 0%;
+     
+    } 
+
+    .outer:hover ~ .o_overlay{
+       opacity: 0%;
+    } 
+
+    .outer {
         position: absolute;
-        top: 33.333%;
-        left: 33.333%;
-        transform: translate(-50%, -50%);
-        order: 8;
+        top: -300px;
+        left: 0;
+
+        z-index: 1;
+    }
+    .middle{ 
+        position: absolute;
+        top: -160px;
+        left: 140px;
+
+        z-index: 2;
+    }
+    .inner {
+        position: absolute;
+        top: -50px;
+        left: 248px;
+
+        z-index: 3;
     }
 
-      .ring_9{
+    .center{
         position: absolute;
-        top: 33.333%;
-        left: 33.333%;
-        transform: translate(-50%, -50%);
-        order: 9;
-    }
-    .ring_10{
-        position: absolute;
-        top: 33.333%;
-        left: 33.333%;
-        transform: translate(-50%, -50%);
-        order: 10;
+        top: 137px;
+        left: 435px;
+        z-index: 4;
     }
 
-     .all_rings{
+    .o_overlay {
         position: absolute;
-        top: 33.333%;
-        left: 33.3333%;
-        transform: translate(-50%, -50%);
-        order: 11
+        top: -300px;
+        left: 0;
+        opacity: 80%;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+
+        z-index: 1;
+    }
+    .m_overlay{ 
+        position: absolute;
+        top: -160px;
+        left: 140px;
+        opacity: 80%;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+
+        z-index: 2;
+    }
+    .i_overlay {
+        position: absolute;
+        top: -50px;
+        left: 248px;
+        opacity: 80%;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+
+        z-index: 3;
     }
 
+    .rings-container {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+   
 </style>
 <Body>
+
+   
+
+<audio id="ringAudio" preload="none"></audio>
+
+    <div id="starfield" aria-hidden="true"></div>
     
         <div class=" site-title">
-            <h1><code>MU-51-CC</code></h1>
+            <h1><code>MU-51.CC</code></h1>
         </div>
-         <div class="ring_8">
-            <img src="8_rings.png" alt="Ring 8" style="width: 175%; height: auto;">
-        </div>
-         <div class="ring_9">
-            <img src="9_rings.png" alt="Ring 9" style="width: 175%; height: auto;">
-        </div>
-        <div class="ring_10">
-            <img src="10_rings.png" alt="Ring 10" style="width: 175%; height: auto;">
+        <div class = "song1">
+            <h3><code>Everything_She_Wants <br>[Wham!]</code></h3>
         </div>
 
-        <div class="all_rings">
-            <img src="all_rings.png" alt="All Rings" style="width: 175%; height: auto;">
+        <div class = "song2">
+            <h3> <code>Ulterior_Motives<br>[Christopher_Saint]</code></h3>
         </div>
-       
+
+         <div class = "song3">
+            <h3> <code>Sweet_Dream <br>[C!anH]</code></h3>
+        </div>
+
+        <div class="rings-container">
+
+           <!-- calculation w x h is just inches of middle or inner ring divided by inches of outer ring *100 -->
+            <div class="inner" data-audio="everything.mp3" style="width: 403.33333px; height: 403.3333px;">
+                <img src="r3.png" alt="inner">
+            </div>
+            <div class="middle" data-audio="motives.mp3" style="width: 620.683px; height: 620.683px;">
+                <img src="r2.png" alt="middle">
+            </div>
+            <div class="outer" data-audio="sweet.mp3" style="height: 900px; width: 900px">
+                <img src="r1.png" alt="outer" style="width: 900px; height: auto;">
+            </div>
+
+
+             <div class="i_overlay" style="width: 403.33333px; height: 403.3333px;">
+                <img src="overlay.png" alt="inner">
+            </div>
+            <div class="m_overlay" style="width: 620.683px; height: 620.683px;">
+                <img src="overlay.png" alt="middle">
+            </div>
+            <div class="o_overlay" style="height: 900px; width: 900px">
+                <img src="overlay.png" alt="outer" style="width: 900px; height: auto;">
+            </div>
+
+
+            <div class="center" style="height: 30px; width:30px">
+                <img src="center.png" alt="center">
+            </div>
+
+        </div>
+
+
+<script>
+    const starfield = document.getElementById("starfield");
+
+    for (let i = 0; i < 150; i++) {
+        const star = document.createElement("span");
+        const size = Math.random() * 2 + 1;
+
+        star.className = "star";
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.opacity = Math.random();
+
+        starfield.appendChild(star);
+    }
+
+    const audio = document.getElementById("ringAudio");
+
+    document.querySelectorAll(".rings-container [data-audio]").forEach(ring => {
+        ring.addEventListener("mouseenter", () => {
+            audio.src = ring.dataset.audio;
+            audio.currentTime = 0;
+            audio.play().catch(error => {
+                console.warn("Audio playback was blocked:", error);
+            });
+        });
+
+        ring.addEventListener("mouseleave", () => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    });
+</script>
 
 </Body>
-<style></style>
